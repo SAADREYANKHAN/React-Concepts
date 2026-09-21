@@ -6,7 +6,7 @@ export default function Navbar(props) {
   
   
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+    <nav className={`navbar navbar-expand-lg bg-body-tertiary bg-${props.mode}`} data-bs-theme={`${props.mode}`}>
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           {props.title}
@@ -42,10 +42,18 @@ export default function Navbar(props) {
               placeholder="Search"
               aria-label="Search"
             />
+            
+
             <button className="btn btn-outline-primary" type="submit">
               Search
             </button>
           </form>
+
+           <div className="form-check form-switch">
+              <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="switchCheckDefault"/>
+              <label className="form-check-label" htmlFor="switchCheckDefault">Dark Mode</label>
+            </div>
+
         </div>
       </div>
     </nav>
